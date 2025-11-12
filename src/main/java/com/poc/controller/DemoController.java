@@ -23,7 +23,7 @@ public class DemoController {
     @GetMapping("/")
     public ResponseEntity<String> hello() {
         String message = String.format(
-            "Hello from the CI/CD Demo Application! Version: %s. Status: OK.",
+            "Hello from the CI/CD Demo Application! Delpoyed in ngrok Version: 01. Status: OK.",
             appVersion
         );
         return ResponseEntity.ok(message);
