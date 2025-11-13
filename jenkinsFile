@@ -20,7 +20,7 @@ pipeline {
         stage('Static Code Analysis') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQube') {
+                    withSonarQubeEnv('sonarqube') {
                         sh 'mvn sonar:sonar -Dsonar.projectKey=Project-04'
                     }
                 }
