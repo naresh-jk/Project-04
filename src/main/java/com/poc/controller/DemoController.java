@@ -22,10 +22,23 @@ public class DemoController {
      */
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        String message = String.format(
-            "Hello from the CI/CD Demo Application! Delpoyed in ngrok Version: 01. Status: OK.",
+        String html = String.format(
+            "<!DOCTYPE html>" +
+            "<html>" +
+            "<head>" +
+            "    <title>CI/CD Demo</title>" +
+            "</head>" +
+            "<body>" +
+            "    <h1>Hello from the CI/CD Demo Application!</h1>" +
+            "    <p>Deployed in ngrok</p>" +
+            "    <p>Version: %s</p>" +
+            "    <p>Status: OK</p>" +
+            "</body>" +
+            "</html>",
             appVersion
         );
-        return ResponseEntity.ok(message);
-    }
+    return ResponseEntity.ok()
+        .header("Content-Type", "text/html")
+        .body(html);
+}
 }
