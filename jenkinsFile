@@ -19,13 +19,10 @@ pipeline {
         }
         stage('Static Code Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-                    sh """
-                        mvn sonar:sonar \
-                        -Dsonar.projectKey=Project-04 \
-                        -Dsonar.host.url=http://172.17.0.1:9000 \
-                        -Dsonar.login=\${SONAR_AUTH_TOKEN}
-                    """
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'mvn sonar:sonar -Dsonar.projectKey=Project-04'
+                    }
                 }
             }
         }
