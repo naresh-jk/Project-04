@@ -17,6 +17,15 @@ pipeline {
                 }
             }
         }
+        stage('SonarQube Analysis'){
+            steps{
+                script{
+                    withSonarQubeEnv('SonarQube') {  // 'SonarQube' should match your Jenkins SonarQube server name
+                        sh 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }
         stage('Push image to Hub'){
             steps{
                 script{
