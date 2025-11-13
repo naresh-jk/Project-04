@@ -29,8 +29,8 @@ public class DemoController {
             "    <title>CI/CD Demo</title>" +
             "</head>" +
             "<body>" +
-            "    <h1>Hello from the CI/CD Demo Application!</h1>" +
-            "    <p>Deployed in ngrok</p>" +
+            "    <h1>Hello Everyone!</h1>" +
+            "    <p>CI/CD Demo Application Deployed in ngrok</p>" +
             "    <p>Version: %s</p>" +
             "    <p>Status: OK</p>" +
             "</body>" +
